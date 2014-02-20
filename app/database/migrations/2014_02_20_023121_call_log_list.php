@@ -19,7 +19,7 @@ class CallLogList extends Migration {
 			$table->string('office_manager');
 			$table->string('email');
 			$table->string('hours');
-			$table->string('call_notes');
+			$table->longtext('call_notes');
 			$table->timestamps();
 
 		});
