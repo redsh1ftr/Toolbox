@@ -14,13 +14,11 @@ class WorkerController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+
 	public $restful = true;
 
-
-public function workerprofile(){
-
-
-return View::make('worker.worker',  array('pagetitle', 'Client Hub'));
-}
+	public function workerprofile() {
+		return View::make('worker.worker',  array('pagetitle', 'Client Hub'));
+	}
 
 }

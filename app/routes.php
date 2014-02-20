@@ -11,25 +11,9 @@
 |
 */
 
+Route::get('/', function() { return View::make('main.hello'); });
 
-Route::get('/', function()
-{
-	return View::make('main.hello');
-});
-
-//loggout
-Route::get('/logout', function()
-{
-	return View::make('main.hello');
-});
-
-
-
-/*Route::get('worker', function()
-{
-	return View::make('main.hello');
-});
-*/
+Route::get('/logout', function() { return View::make('main.hello'); });
 
 //client routes
 
