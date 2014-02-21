@@ -23,4 +23,4 @@ Route::get('/marketing/call', array('as' => 'callhome', 'uses' => 'MarketingCont
 
 Route::post('/marketing/call/create', array('uses' => 'MarketingController@addcall'));
 
-Route::get('/marketing/call/get', array('uses' => 'MarketingController@callreport'));
+Route::get('/marketing/call/get', array('as' => 'callreport', 'uses' => 'MarketingController@callreport'));
