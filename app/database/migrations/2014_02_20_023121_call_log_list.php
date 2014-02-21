@@ -14,6 +14,9 @@ class CallLogList extends Migration {
 			Schema::create('call_log', function($table){
 			$table->increments('id');
 			$table->string('business_name');
+			$table->string('street');
+			$table->string('city');
+			$table->string('zip');
 			$table->string('phone');
 			$table->string('answered');
 			$table->string('office_manager');

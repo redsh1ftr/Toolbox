@@ -28,12 +28,16 @@ return View::make('marketing.call_log',  array('pagetitle', 'Call Log'))
 public function addcall(){
 	CallLog::create(array(
 		'business_name' => Input::get('business_name'),
+		'street' => Input::get('street'),
+		'city' => Input::get('city'),
+		'zip' => Input::get('zip'),
 		'phone' => Input::get('phone'),
 		'answered' => Input::get('answered'),
 		'office_manager' => Input::get('office_manager'),
 		'email' => Input::get('email'),
 		'hours' => Input::get('hours'),
-		'call_notes' => Input::get('call_notes')
+		'call_notes' => Input::get('call_notes'),
+		
 		));
 	return Redirect::route('callhome');
 }
@@ -44,5 +48,14 @@ return View::make('marketing.call_display',  array('pagetitle', 'Call Report'))
 	->with('call_list1', CallLog::orderBy('phone')->get());
 
 }
+
+
+public function callfollowupnotes($id){
+
+return View::make('marketing.call_followup',  array('pagetitle', 'Call Report'))
+	->with('call_list1', CallLog::where('id', '=', $id)->get());
+	//->with('call_list_followup', CallLogFollowup::where('call_id', '=', $id)->get());
+}
+
 
 }
