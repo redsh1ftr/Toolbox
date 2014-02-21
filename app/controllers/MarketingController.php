@@ -41,7 +41,7 @@ public function addcall(){
 public function callreport(){
 
 return View::make('marketing.call_display',  array('pagetitle', 'Call Report'))
-	->with('call_list1', CallLog::get());
+	->with('call_list1', CallLog::orderBy('phone')->get());
 
 }
 

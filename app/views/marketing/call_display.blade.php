@@ -1,10 +1,10 @@
 @extends('layouts.report')
 @section('content')
-
+<TABLE  BORDER="0"> <TH COLSPAN="3">
+<tr><th>Phone Number</th><th>Business Name</th><th>Notes</th>
 @foreach($call_list1 as $call_list)
-<ul>
-{{ $call_list->phone }}  {{ $call_list->business_name }} 
-</ul>
+</tr>
+<th>{{ $call_list->phone }}</th><th>{{ $call_list->business_name }} </th><th>{{ $call_list->call_notes }}</th>
 @endforeach
 
 @stop
