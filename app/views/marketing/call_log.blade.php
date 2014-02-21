@@ -25,17 +25,8 @@
 <tr><th>Notes:</th><th>{{ Form::textarea('call_notes') }}</th></tr>
 
 
-
-
-  <br>
-  <br>
-   <br>
-  <br>
-   <br>
-   <br>
-   <br>
-   <br>
   </table>
+
   {{ Form::submit ('Log Call') }}
 
     {{ Form::close() }}
