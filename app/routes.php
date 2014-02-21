@@ -19,6 +19,8 @@ Route::get('/logout', function() { return View::make('main.hello'); });
 
 Route::get('/worker', array('uses' => 'WorkerController@workerprofile'));
 
-Route::get('/marketing/call', array('as' => 'callhome', 'uses' => 'MarketingController@workerprofile'));
+Route::get('/marketing/call', array('as' => 'callhome', 'uses' => 'MarketingController@callprofile'));
 
 Route::post('/marketing/call/create', array('uses' => 'MarketingController@addcall'));
+
+Route::get('/marketing/call/get', array('uses' => 'MarketingController@callreport'));

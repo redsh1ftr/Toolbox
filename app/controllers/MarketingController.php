@@ -17,7 +17,7 @@ class MarketingController extends BaseController {
 	public $restful = true;
 
 
-public function workerprofile(){
+public function callprofile(){
 
 return View::make('marketing.call_log',  array('pagetitle', 'Call Log'))
 	->with('call_list1', CallLog::get());
@@ -36,6 +36,12 @@ public function addcall(){
 		'call_notes' => Input::get('call_notes')
 		));
 	return Redirect::route('callhome');
+}
+
+public function callreport(){
+
+return View::make('marketing.call_display',  array('pagetitle', 'Call Report'))
+	->with('call_list1', CallLog::get());
 
 }
 
