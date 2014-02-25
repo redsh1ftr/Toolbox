@@ -18,7 +18,7 @@ class AddClientData extends Migration {
 				'office_manager' => 'manager of the office',
 				'net_terms' => '30',
 				'work_order_number' => '014',
-				'hours' => 'Monday - Friday 9-5, Saturday 10-3'
+				'hours' => 'Monday - Friday 9-5, Saturday 10-3',
 				
 			));
 
@@ -28,7 +28,7 @@ class AddClientData extends Migration {
 				'office_manager' => 'manager',
 				'net_terms' => '30',
 				'work_order_number' => '009',
-				'hours' => 'Monday - Friday 9-5, Saturday 10-3'
+				'hours' => 'Monday - Friday 9-5, Saturday 10-3',
 				
 			));
 

@@ -15,6 +15,7 @@ class CreateClientTable1 extends Migration {
 			$table->increments('id');
 			$table->integer('client_id');
 			$table->string('business_name');
+			$table->string('office_manager');
 			$table->string('net_terms');
 			$table->integer('work_order_number');
 			$table->string('hours');

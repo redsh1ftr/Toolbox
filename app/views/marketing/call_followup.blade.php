@@ -1,10 +1,29 @@
 @extends('layouts.report')
 @section('content')
-<TABLE  BORDER="0"> <TH COLSPAN="3">
-<tr><th>Phone Number</th><th>Business Name</th><th>Time</th><th>Notes</th>
 @foreach($call_list1 as $call_list)
-</tr>
-<th>{{ $call_list->phone }}</th><th>{{ $call_list->business_name }}</th><th>{{ $call_list->created_at }}</th><th>{{ $call_list->call_notes }}</th>
-@endforeach
+<h1>
+{{ $call_list->business_name }}
+</h1>
 
+{{ $call_list->street	}}<br>
+{{ $call_list->city }} {{ $call_list->zip }}<br>
+{{ $call_list->phone }}<br>
+{{ $call_list->created_at }}<br><br>
+
+Notes:<br>
+{{ $call_list->call_notes }}
+
+@endforeach
+<br><br><br>
+Followup Calls:
+<br>
+
+<TABLE  BORDER="0"> <TH COLSPAN="2">
+{{ Form::open(array('route' => 'logfollowupnotes', 'POST')) }}
+<tr><th>Add more Notes:</th><th>{{ Form::textarea('call_notes') }}</th></tr>
+
+  </table>
+
+  {{ Form::submit ('Log Call') }}
+  
 @stop
