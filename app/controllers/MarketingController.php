@@ -41,14 +41,14 @@ public function addcall(){
 	return Redirect::route('callhome');
 }
 
-public function followupcall($id){
+public function followupcall(){
 //get the ID
 	//$checkid = DB::table('call_log')->where('id', '=', $client_id)->pluck('id');
-CallLog::create(array(
-	'business_name' => Input::get('notes'),
-	'notes' => Input::get($id),
+CallLogfollowup::create(array(
+	'notes' => Input::get('notes'),
+	'call_id' => Input::get('call_id'),
 	));
-	return Redirect::route('callhome');
+	return Redirect::route('callreport');
 }
 
 public function callreport(){
@@ -61,8 +61,8 @@ return View::make('marketing.call_display',  array('pagetitle', 'Call Report'))
 
 public function callfollowupnotes($id){
 return View::make('marketing.call_followup',  array('pagetitle', 'Call Report'))
-	->with('call_list1', CallLog::where('id', '=', $id)->get());
-	//->with('followup1', CallLogfollowup::where('call_id', '=', $id)->get());
+	->with('call_list1', CallLog::where('id', '=', $id)->get())
+	->with('followup1', CallLogfollowup::where('call_id', '=', $id)->get());
 }
 
 
