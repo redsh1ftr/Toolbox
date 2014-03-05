@@ -30,6 +30,7 @@ public function addcall(){
 		'business_name' => Input::get('business_name'),
 		'street' => Input::get('street'),
 		'city' => Input::get('city'),
+		'state' => 'MI',
 		'zip' => Input::get('zip'),
 		'phone' => Input::get('phone'),
 		'answered' => Input::get('answered'),
@@ -42,8 +43,7 @@ public function addcall(){
 }
 
 public function followupcall(){
-//get the ID
-	//$checkid = DB::table('call_log')->where('id', '=', $client_id)->pluck('id');
+
 CallLogfollowup::create(array(
 	'notes' => Input::get('notes'),
 	'call_id' => Input::get('call_id'),
