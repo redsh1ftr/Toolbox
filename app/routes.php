@@ -29,4 +29,10 @@ Route::get('marketing/call/{id}', array('as' => 'callfollowupnotes', 'uses' => '
 
 Route::post('/marketing/call/followup', array('as' => 'logfollowupnotes', 'uses' => 'MarketingController@followupcall'));
 
-Route::get('/client/new_client', array('uses' => 'ClientController@newclient'));
+Route::get('/client/new_client', array('as' => 'clientlist', 'uses' => 'ClientController@newclient'));
+
+Route::post('/client/new_client/create', array('uses' => 'ClientController@addclient'));
+
+Route::get('/client/list', array('as' => 'clientlist', 'uses' => 'ClientController@clientlist'));
+
+Route::get('client/{id}', array('as' => 'clientprofile', 'uses' => 'ClientController@clientprofile'));
