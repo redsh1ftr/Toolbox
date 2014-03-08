@@ -28,6 +28,7 @@ Notes:<br>
 @endforeach
 <br><br><br>
 
+{{link_to_route('clientlist', 'Client List')}}<br><br>
 
-{{ $client_list->created_at }}<br><br>
+{{ $client_list->created_at }}
 @stop

@@ -50,6 +50,8 @@
 	</style>
 </head>
 <body>
+	<table style="width:300px", BORDER="0"> <TH COLSPAN="3">
+	<th>{{link_to_route('clientlist', 'Client List')}}</th><th>{{link_to_route('callreport', 'Call List')}}</th></table>
 		@yield('content')
 	</div>
 </body>
