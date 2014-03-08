@@ -41,3 +41,4 @@ Route::get('client/{id}', array('as' => 'clientprofile', 'uses' => 'ClientContro
 
 Route::get('client', array('as' => 'clienthub', 'uses' => 'ClientController@clienthub'));
 
+Route::get('workorder/new/{id}', array('as' => 'new_workorder', 'uses' => 'WorkorderController@createworkorder'));

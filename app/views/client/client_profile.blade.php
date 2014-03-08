@@ -15,8 +15,8 @@
 <br>
 
 <TABLE  BORDER="0"> <TH COLSPAN="2"></tr>
-<th>Contact: {{$client_list->first_name}}</th><th> {{$client_list->last_name}}</th></tr>
-@if($client_list->office_manager) <th>{{$client_list->office_manager}}</th></tr>@endif</tr>
+<th>Contact: {{$client_list->first_name}} {{$client_list->last_name}}</th></tr>
+@if($client_list->office_manager) <th>Office Manager: {{$client_list->office_manager}}</th></tr>@endif</tr>
 <th>Hours: {{$client_list->hours}}</th></tr>
 <th>Phone: {{$client_list->phone }}</th></tr>
 <th>Fax: {{ $client_list->fax }}</th></tr>
@@ -26,7 +26,9 @@ Notes:<br>
 {{ $client_list->notes }}
 
 @endforeach
-<br><br><br>
+
+
+{{-- {{ link_to_route('newworkorder', ($call_list->business_name), $client_list->id, array('id' => $client_list->id)); }} --}}<br>
 
 {{ $client_list->created_at }}
 @stop
