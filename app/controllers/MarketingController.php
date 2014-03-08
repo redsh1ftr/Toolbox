@@ -66,4 +66,12 @@ return View::make('marketing.call_followup',  array('pagetitle', 'Call Report'))
 }
 
 
+public function marketinghub(){
+
+return View::make('marketing.call_hub',  array('pagetitle', 'Marketing Hub'));
+
+}
+
+
+
 }

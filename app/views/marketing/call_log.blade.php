@@ -32,4 +32,4 @@
     {{ Form::close() }}
 <br><br><br>
 
-{{ link_to_route('callreport', 'Call Report') }}
+@stop

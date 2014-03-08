@@ -19,6 +19,8 @@ Route::get('/logout', function() { return View::make('main.hello'); });
 
 Route::get('/worker', array('uses' => 'WorkerController@workerprofile'));
 
+Route::get('marketing', array('as' => 'marketinghub', 'uses' => 'MarketingController@marketinghub'));
+
 Route::get('/marketing/call', array('as' => 'callhome', 'uses' => 'MarketingController@callprofile'));
 
 Route::post('/marketing/call/create', array('uses' => 'MarketingController@addcall'));
@@ -29,10 +31,13 @@ Route::get('marketing/call/{id}', array('as' => 'callfollowupnotes', 'uses' => '
 
 Route::post('/marketing/call/followup', array('as' => 'logfollowupnotes', 'uses' => 'MarketingController@followupcall'));
 
-Route::get('/client/new_client', array('as' => 'clientlist', 'uses' => 'ClientController@newclient'));
+Route::get('/client/new_client', array('as' => 'clientcreate', 'uses' => 'ClientController@newclient'));
 
 Route::post('/client/new_client/create', array('uses' => 'ClientController@addclient'));
 
 Route::get('/client/list', array('as' => 'clientlist', 'uses' => 'ClientController@clientlist'));
 
 Route::get('client/{id}', array('as' => 'clientprofile', 'uses' => 'ClientController@clientprofile'));
+
+Route::get('client', array('as' => 'clienthub', 'uses' => 'ClientController@clienthub'));
+

@@ -58,9 +58,20 @@ return View::make('client.client_list',  array('pagetitle', 'Client List'))
 
 
 public function clientprofile($id){
-return View::make('client.client',  array('pagetitle', 'Client Profile'))
+return View::make('client.client_profile',  array('pagetitle', 'Client Profile'))
 	->with('client_list1', Client::where('id', '=', $id)->get());
 }
+
+public function clienthub(){
+
+return View::make('client.client',  array('pagetitle', 'Client Hub'));
+
+}
+
+
+
+
+
 
 
 

@@ -51,7 +51,7 @@
 </head>
 <body>
 	<table style="width:300px", BORDER="0"> <TH COLSPAN="3">
-	<th>{{link_to_route('clientlist', 'Client List')}}</th><th>{{link_to_route('callreport', 'Call List')}}</th></table>
+	<th>{{link_to_route('clienthub', 'Client Hub')}}</th><th>{{link_to_route('marketinghub', 'Marketing Hub')}}</th></table><br>
 		@yield('content')
 	</div>
 </body>
