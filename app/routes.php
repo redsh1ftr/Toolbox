@@ -28,3 +28,5 @@ Route::get('/marketing/call/get', array('as' => 'callreport', 'uses' => 'Marketi
 Route::get('marketing/call/{id}', array('as' => 'callfollowupnotes', 'uses' => 'MarketingController@callfollowupnotes'));
 
 Route::post('/marketing/call/followup', array('as' => 'logfollowupnotes', 'uses' => 'MarketingController@followupcall'));
+
+Route::get('/client/new_client', array('uses' => 'ClientController@newclient'));

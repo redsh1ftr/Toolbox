@@ -1,6 +1,6 @@
 <?php
 
-class WorkerController extends BaseController {
+class ClientController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -21,3 +21,8 @@ public function workerprofile(){
 
 return View::make('main.hello',  array('pagetitle', 'Client Hub'));
 }
+
+public function newclient(){
+
+return View::make('client.new_client',  array('pagetitle', 'Client Hub'));
+}}
