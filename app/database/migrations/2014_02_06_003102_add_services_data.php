@@ -17,7 +17,7 @@ class AddServicesData extends Migration {
 			'location' => 'Kitchen',
 			'problem' => 'Cabinet',
 			'specific_problem' => 'Door Hinge',
-			'service_notes' => 'Describe in detail exactly where the problem was and how you fixed it, IE top right hinge, WD40.'
+			'notes' => 'Describe in detail exactly where the problem was and how you fixed it, IE top right hinge, WD40.'
 
 
 		));

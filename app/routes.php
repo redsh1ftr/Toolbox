@@ -56,3 +56,11 @@ Route::post('services/medical/create', array('as' => 'createmedicallocation', 'u
 Route::post('services/commercial/create', array('as' => 'createcommerciallocation', 'uses' => 'ServicesController@addcommerciallocation'));
 
 Route::post('services/residential/create', array('as' => 'createresidentiallocation', 'uses' => 'ServicesController@addresidentiallocation'));
+
+Route::get('services/commercial/problem/{id}', array('as' => 'commercialproblem', 'uses' =>'ServicesController@commercialproblems'));
+
+Route::post('services/commercial/problem/create', array('as' => 'addcommercialproblem', 'uses' => 'ServicesController@addcommercialproblem'));
+
+Route::get('services/commercial/problem/specificproblem/{id}', array('as' => 'commercialspecificproblem', 'uses' =>'ServicesController@commercialspecificproblem'));
+
+Route::post('services/commercial/problem/speficicproblem/create', array('as' => 'addcommercialspecificproblem', 'uses' => 'ServicesController@addcommercialspecificproblem'));
