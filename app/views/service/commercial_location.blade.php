@@ -17,6 +17,7 @@
 
 {{ Form::text('location') }}
 
+
 {{ Form::submit ('Add Commercial Location') }}
 
     {{ Form::close() }}

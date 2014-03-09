@@ -14,6 +14,10 @@
 @endforeach
 
 
+<br><br>
+
+<h2>{{ link_to_route('commerciallocation', 'Back to locations') }}</h2><br><br>
+
 {{ Form::open(array('route' => 'addcommercialspecificproblem', 'POST')) }}
 
 {{ Form::text('specific_problem') }}
