@@ -146,6 +146,37 @@ return View::make('service.service_hub',  array('pagetitle', 'Service Hub'));
 				return Redirect::route('residentiallocation');
 			}
 
+			public function residentialproblems($id){
+			$getlocation = ResidentialLocations::where('id', '=', $id)->pluck('location');
+			return View::make('service.residential_problem',  array('pagetitle', 'Problem'))
+				->with('problems', Residentialproblems::where('location', '=', $getlocation)->orderBy('problem')->get())
+				->with('location_id', ResidentialLocations::where('location', '=', $getlocation)->get());
+			}
+
+			public function addresidentialproblem(){
+				Residentialproblems::create(array(
+					'location' => Input::get('location'),
+					'problem' => Input::get('problem'),
+					));
+
+				return Redirect::route('residentiallocation');
+			}
+
+			public function residentialspecificproblem($id){
+			$getproblem = Residentialproblems::where('id', '=', $id)->pluck('problem');
+			return View::make('service.residential_specificproblem',  array('pagetitle', 'Specific Problem'))
+				->with('problems', Residentialspecificproblems::where('problem', '=', $getproblem)->orderBy('specific_problem')->get())
+				->with('problem_id', Residentialproblems::where('id', '=', $id)->get());
+			}
+
+			public function addresidentialspecificproblem(){
+				Residentialspecificproblems::create(array(
+					'specific_problem' => Input::get('specific_problem'),
+					'problem' => Input::get('problem'),
+					));
+
+				return Redirect::route('residentiallocation');
+			}
 
 
 public function servicelocation(){

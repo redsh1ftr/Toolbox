@@ -13,6 +13,7 @@ class ResidentialProblems extends Migration {
 	{
 		Schema::create('residential_problems', function($table){
 			$table->increments('id');
+			$table->string('location');
 			$table->string('problem');
 			$table->timestamps();
 	});

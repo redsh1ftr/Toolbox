@@ -89,8 +89,15 @@ Route::get('/logout', function() { return View::make('main.hello'); });
 
 		Route::get('services/residential', array('as' => 'residentiallocation', 'uses' =>'ServicesController@residentiallocation'));
 
-		Route::post('services/residential/create', array('as' => 'createresidentiallocation', 'uses' => 'ServicesController@addresidentiallocation'));
+		Route::post('services/residential/create', array('as' => 'addresidentiallocation', 'uses' => 'ServicesController@addresidentiallocation'));
 
+		Route::get('services/residential/problem/{id}', array('as' => 'residentialproblem', 'uses' =>'ServicesController@residentialproblems'));
+
+		Route::post('services/residential/problem/create', array('as' => 'addresidentialproblem', 'uses' => 'ServicesController@addresidentialproblem'));
+
+		Route::get('services/residential/problem/specificproblem/{id}', array('as' => 'residentialspecificproblem', 'uses' =>'ServicesController@residentialspecificproblem'));
+
+		Route::post('services/residential/problem/speficicproblem/create', array('as' => 'addresidentialspecificproblem', 'uses' => 'ServicesController@addresidentialspecificproblem'));
 
 
 

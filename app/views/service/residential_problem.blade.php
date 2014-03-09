@@ -1,20 +1,27 @@
 @extends('layouts.report')
 @section('content')
 
-@foreach($services1 as $services)
+<h1>Residential Problems</h1><br>
+
+@foreach($problems as $problem)
 <ul>
 
-	{{ $services->location }}
+{{ link_to_route('residentialspecificproblem', ($problem->problem), $problem->id, array('id' => $problem->id)); }}
+
+
 
 </ul>
 @endforeach
 
 
-{{ Form::open(array('route' => 'addcommercialproblem', 'POST')) }}
+{{ Form::open(array('route' => 'addresidentialproblem', 'POST')) }}
 
-{{ Form::text('location') }}
+@foreach($location_id as $locationid)
+{{ Form::hidden('location', $locationid->location)}}
+@endforeach
+{{ Form::text('problem') }}
 
-{{ Form::submit ('Add Commercial Problem') }}
+{{ Form::submit ('Add Residential Problem') }}
 
     {{ Form::close() }}
 @stop
