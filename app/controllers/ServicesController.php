@@ -23,21 +23,52 @@ return View::make('service.service_hub',  array('pagetitle', 'Service Hub'));
 }
 
 
-public function medicalservice(){
+public function medicallocation(){
 
-return View::make('service.location',  array('pagetitle', 'Location'))
+return View::make('service.medical_location',  array('pagetitle', 'Location'))
 	->with('services1', MedicalLocations::orderBy('location')->get());
 
 }
 
 public function addmedicallocation(){
 	MedicalLocations::create(array(
-		'type' => 'medical',
 		'location' => Input::get('location'),
 		));
 
-	return Redirect::route('medicalservice');
+	return Redirect::route('medicallocation');
 }
+
+
+public function commerciallocation(){
+
+return View::make('service.commercial_location',  array('pagetitle', 'Location'))
+	->with('services1', CommercialLocations::orderBy('location')->get());
+
+}
+
+public function addcommerciallocation(){
+	CommercialLocations::create(array(
+		'location' => Input::get('location'),
+		));
+
+	return Redirect::route('commerciallocation');
+}
+
+public function residentiallocation(){
+
+return View::make('service.residential_location',  array('pagetitle', 'Location'))
+	->with('services1', ResidentialLocations::orderBy('location')->get());
+
+}
+
+public function addresidentiallocation(){
+	ResidentialLocations::create(array(
+		'location' => Input::get('location'),
+		));
+
+	return Redirect::route('residentiallocation');
+}
+
 
 
 public function servicelocation(){

@@ -45,10 +45,14 @@ Route::get('workorder/new/{id}', array('as' => 'new_workorder', 'uses' => 'Worko
 
 Route::get('services', array('as' => 'servicehub', 'uses' => 'ServicesController@servicehub'));
 
-Route::get('services/medical', array('as' => 'medicalservice', 'uses' =>'ServicesController@medicalservice'));
+Route::get('services/medical', array('as' => 'medicallocation', 'uses' =>'ServicesController@medicallocation'));
 
-Route::get('services/commercial', array('as' => 'commercialservice', 'uses' =>'ServicesController@commercialservice'));
+Route::get('services/commercial', array('as' => 'commerciallocation', 'uses' =>'ServicesController@commerciallocation'));
 
-Route::get('services/residential', array('as' => 'residentialservice', 'uses' =>'ServicesController@residentialservice'));
+Route::get('services/residential', array('as' => 'residentiallocation', 'uses' =>'ServicesController@residentiallocation'));
 
 Route::post('services/medical/create', array('as' => 'createmedicallocation', 'uses' => 'ServicesController@addmedicallocation'));
+
+Route::post('services/commercial/create', array('as' => 'createcommerciallocation', 'uses' => 'ServicesController@addcommerciallocation'));
+
+Route::post('services/residential/create', array('as' => 'createresidentiallocation', 'uses' => 'ServicesController@addresidentiallocation'));

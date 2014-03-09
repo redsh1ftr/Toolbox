@@ -10,11 +10,11 @@
 @endforeach
 
 
-{{ Form::open(array('url' => '/services/medical/create', 'POST')) }}
+{{ Form::open(array('url' => '/services/residential/create', 'POST')) }}
 
 {{ Form::text('location') }}
 
-{{ Form::submit ('Add Medical Location') }}
+{{ Form::submit ('Add Residential Location') }}
 
     {{ Form::close() }}
 @stop

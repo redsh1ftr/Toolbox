@@ -3,10 +3,10 @@
 
 <h1>
 
-{{link_to_route('medicalservice', 'Medical')}}<br><br>
+{{link_to_route('medicallocation', 'Medical')}}<br><br>
 
-{{link_to_route('commercialservice', 'Commercial')}}<br><br>
+{{link_to_route('commerciallocation', 'Commercial')}}<br><br>
 
-{{link_to_route('residentialservice', 'Residential')}}<br><br>
+{{link_to_route('residentiallocation', 'Residential')}}<br><br>
 
 @stop
