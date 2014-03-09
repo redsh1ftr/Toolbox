@@ -33,7 +33,7 @@ return View::make('service.service_hub',  array('pagetitle', 'Service Hub'));
 
 			public function medicallocation(){
 
-			return View::make('service.medical_location',  array('pagetitle', 'Location'))
+			return View::make('service.medical_location',  array('pagetitle', 'Medical Location'))
 				->with('services1', MedicalLocations::orderBy('location')->get());
 
 			}
@@ -46,12 +46,43 @@ return View::make('service.service_hub',  array('pagetitle', 'Service Hub'));
 				return Redirect::route('medicallocation');
 			}
 
+			public function medicalproblems($id){
+			$getlocation = MedicalLocations::where('id', '=', $id)->pluck('location');
+			return View::make('service.medical_problem',  array('pagetitle', 'Medical Problem'))
+				->with('problems', Medicalproblems::where('location', '=', $getlocation)->orderBy('problem')->get())
+				->with('location_id', MedicalLocations::where('location', '=', $getlocation)->get());
+			}
+
+			public function addmedicalproblem(){
+				Medicalproblems::create(array(
+					'location' => Input::get('location'),
+					'problem' => Input::get('problem'),
+					));
+				return Redirect::route('medicallocation');
+			}
+
+			public function medicalspecificproblem($id){
+			$getproblem = Medicalproblems::where('id', '=', $id)->pluck('problem');
+			return View::make('service.medical_specificproblem',  array('pagetitle', 'Specific Problem'))
+				->with('problems', Medicalspecificproblems::where('problem', '=', $getproblem)->orderBy('specific_problem')->get())
+				->with('problem_id', Medicalproblems::where('id', '=', $id)->get());
+			}
+
+			public function addmedicalspecificproblem(){
+				Medicalspecificproblems::create(array(
+					'specific_problem' => Input::get('specific_problem'),
+					'problem' => Input::get('problem'),
+					));
+
+				return Redirect::route('medicallocation');
+			}
+
 //COMMERCIAL FUNCTIONALITY
 
 
 			public function commerciallocation(){
 
-			return View::make('service.commercial_location',  array('pagetitle', 'Location'))
+			return View::make('service.commercial_location',  array('pagetitle', 'Commercial Location'))
 				->with('services1', CommercialLocations::orderBy('location')->get());
 
 			}

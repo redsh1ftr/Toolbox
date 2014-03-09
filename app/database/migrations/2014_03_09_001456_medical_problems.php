@@ -13,6 +13,7 @@ class MedicalProblems extends Migration {
 	{
 		Schema::create('medical_problems', function($table){
 			$table->increments('id');
+			$table->string('location');
 			$table->string('problem');
 			$table->timestamps();
 	});

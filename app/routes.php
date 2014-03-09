@@ -15,52 +15,82 @@ Route::get('/', function() { return View::make('main.hello'); });
 
 Route::get('/logout', function() { return View::make('main.hello'); });
 
-//client routes
+//WORKER ROUTES
 
-Route::get('/worker', array('uses' => 'WorkerController@workerprofile'));
 
-Route::get('marketing', array('as' => 'marketinghub', 'uses' => 'MarketingController@marketinghub'));
+		Route::get('/worker', array('uses' => 'WorkerController@workerprofile'));
 
-Route::get('/marketing/call', array('as' => 'callhome', 'uses' => 'MarketingController@callprofile'));
+//CLIENT ROUTES
 
-Route::post('/marketing/call/create', array('uses' => 'MarketingController@addcall'));
+		Route::get('/client/new_client', array('as' => 'clientcreate', 'uses' => 'ClientController@newclient'));
 
-Route::get('/marketing/call/get', array('as' => 'callreport', 'uses' => 'MarketingController@callreport'));
+		Route::post('/client/new_client/create', array('uses' => 'ClientController@addclient'));
 
-Route::get('marketing/call/{id}', array('as' => 'callfollowupnotes', 'uses' => 'MarketingController@callfollowupnotes'));
+		Route::get('/client/list', array('as' => 'clientlist', 'uses' => 'ClientController@clientlist'));
 
-Route::post('/marketing/call/followup', array('as' => 'logfollowupnotes', 'uses' => 'MarketingController@followupcall'));
+		Route::get('client/{id}', array('as' => 'clientprofile', 'uses' => 'ClientController@clientprofile'));
 
-Route::get('/client/new_client', array('as' => 'clientcreate', 'uses' => 'ClientController@newclient'));
+		Route::get('client', array('as' => 'clienthub', 'uses' => 'ClientController@clienthub'));
 
-Route::post('/client/new_client/create', array('uses' => 'ClientController@addclient'));
+//MARKETING ROUTES
 
-Route::get('/client/list', array('as' => 'clientlist', 'uses' => 'ClientController@clientlist'));
+		Route::get('marketing', array('as' => 'marketinghub', 'uses' => 'MarketingController@marketinghub'));
 
-Route::get('client/{id}', array('as' => 'clientprofile', 'uses' => 'ClientController@clientprofile'));
+		Route::get('/marketing/call', array('as' => 'callhome', 'uses' => 'MarketingController@callprofile'));
 
-Route::get('client', array('as' => 'clienthub', 'uses' => 'ClientController@clienthub'));
+		Route::post('/marketing/call/create', array('uses' => 'MarketingController@addcall'));
 
-Route::get('workorder/new/{id}', array('as' => 'new_workorder', 'uses' => 'WorkorderController@createworkorder'));
+		Route::get('/marketing/call/get', array('as' => 'callreport', 'uses' => 'MarketingController@callreport'));
 
-Route::get('services', array('as' => 'servicehub', 'uses' => 'ServicesController@servicehub'));
+		Route::get('marketing/call/{id}', array('as' => 'callfollowupnotes', 'uses' => 'MarketingController@callfollowupnotes'));
 
-Route::get('services/medical', array('as' => 'medicallocation', 'uses' =>'ServicesController@medicallocation'));
+		Route::post('/marketing/call/followup', array('as' => 'logfollowupnotes', 'uses' => 'MarketingController@followupcall'));
 
-Route::get('services/commercial', array('as' => 'commerciallocation', 'uses' =>'ServicesController@commerciallocation'));
+//WORKORDER ROUTES
 
-Route::get('services/residential', array('as' => 'residentiallocation', 'uses' =>'ServicesController@residentiallocation'));
+		Route::get('workorder/new/{id}', array('as' => 'new_workorder', 'uses' => 'WorkorderController@createworkorder'));
 
-Route::post('services/medical/create', array('as' => 'createmedicallocation', 'uses' => 'ServicesController@addmedicallocation'));
 
-Route::post('services/commercial/create', array('as' => 'createcommerciallocation', 'uses' => 'ServicesController@addcommerciallocation'));
+//SERVICE ROUTES
 
-Route::post('services/residential/create', array('as' => 'createresidentiallocation', 'uses' => 'ServicesController@addresidentiallocation'));
+		Route::get('services', array('as' => 'servicehub', 'uses' => 'ServicesController@servicehub'));
 
-Route::get('services/commercial/problem/{id}', array('as' => 'commercialproblem', 'uses' =>'ServicesController@commercialproblems'));
+	//MEDICAL SERVICE ROUTES
 
-Route::post('services/commercial/problem/create', array('as' => 'addcommercialproblem', 'uses' => 'ServicesController@addcommercialproblem'));
+		Route::get('services/medical', array('as' => 'medicallocation', 'uses' =>'ServicesController@medicallocation'));
 
-Route::get('services/commercial/problem/specificproblem/{id}', array('as' => 'commercialspecificproblem', 'uses' =>'ServicesController@commercialspecificproblem'));
+		Route::post('services/medical/create', array('as' => 'createmedicallocation', 'uses' => 'ServicesController@addmedicallocation'));
 
-Route::post('services/commercial/problem/speficicproblem/create', array('as' => 'addcommercialspecificproblem', 'uses' => 'ServicesController@addcommercialspecificproblem'));
+		Route::get('services/medical/problem/{id}', array('as' => 'medicalproblem', 'uses' => 'ServicesController@medicalproblems'));
+		
+		Route::post('services/medical/problem/create', array('as' => 'addmedicalproblem', 'uses' => 'ServicesController@addmedicalproblem'));
+
+		Route::get('services/medical/problem/specificproblem/{id}', array('as' => 'medicalspecificproblem', 'uses' => 'ServicesController@medicalspecificproblem'));
+
+		Route::post('services/medical/problem/specificproblem/create', array('as' => 'addmedicalspecificproblem', 'uses' => 'ServicesController@addmedicalspecificproblem'));
+
+	//COMMERCIAL SERVICE ROUTES
+
+		Route::get('services/commercial', array('as' => 'commerciallocation', 'uses' =>'ServicesController@commerciallocation'));
+
+		Route::post('services/commercial/create', array('as' => 'createcommerciallocation', 'uses' => 'ServicesController@addcommerciallocation'));
+
+		Route::get('services/commercial/problem/{id}', array('as' => 'commercialproblem', 'uses' =>'ServicesController@commercialproblems'));
+
+		Route::post('services/commercial/problem/create', array('as' => 'addcommercialproblem', 'uses' => 'ServicesController@addcommercialproblem'));
+
+		Route::get('services/commercial/problem/specificproblem/{id}', array('as' => 'commercialspecificproblem', 'uses' =>'ServicesController@commercialspecificproblem'));
+
+		Route::post('services/commercial/problem/speficicproblem/create', array('as' => 'addcommercialspecificproblem', 'uses' => 'ServicesController@addcommercialspecificproblem'));
+
+
+
+	//RESIDENTIAL SERVICE ROUTES
+
+		Route::get('services/residential', array('as' => 'residentiallocation', 'uses' =>'ServicesController@residentiallocation'));
+
+		Route::post('services/residential/create', array('as' => 'createresidentiallocation', 'uses' => 'ServicesController@addresidentiallocation'));
+
+
+
+
