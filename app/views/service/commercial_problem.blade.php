@@ -6,7 +6,7 @@
 @foreach($problems as $problem)
 <ul>
 
-{{ link_to_route('commercialspecificproblem', ($problem->problem), $problem->id, array('id' => $problem->id, 'problem' =>$problem->problem)); }}
+{{ link_to_route('commercialspecificproblem', ($problem->problem), $problem->id, array('id' => $problem->id)); }}
 
 
 
@@ -15,8 +15,11 @@
 
 
 {{ Form::open(array('route' => 'addcommercialproblem', 'POST')) }}
-
+@foreach($location_id as $locationid)
+{{ Form::hidden('location', $locationid->location)}}
+@endforeach
 {{ Form::text('problem') }}
+
 {{ Form::submit ('Add Commercial Problem') }}
 
     {{ Form::close() }}

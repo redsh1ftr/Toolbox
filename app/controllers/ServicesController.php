@@ -65,16 +65,19 @@ return View::make('service.service_hub',  array('pagetitle', 'Service Hub'));
 			}
 
 			public function commercialproblems($id){
+			$getlocation = CommercialLocations::where('id', '=', $id)->pluck('location');
 			return View::make('service.commercial_problem',  array('pagetitle', 'Problem'))
-				->with('problems', Commercialproblems::orderBy('problem')->get());
+				->with('problems', Commercialproblems::where('location', '=', $getlocation)->orderBy('problem')->get())
+				->with('location_id', CommercialLocations::where('location', '=', $getlocation)->get());
 			}
 
 			public function addcommercialproblem(){
 				Commercialproblems::create(array(
+					'location' => Input::get('location'),
 					'problem' => Input::get('problem'),
 					));
 
-				return Redirect::route('commercialproblem');
+				return Redirect::route('commerciallocation');
 			}
 
 			public function commercialspecificproblem($id){
@@ -90,7 +93,7 @@ return View::make('service.service_hub',  array('pagetitle', 'Service Hub'));
 					'problem' => Input::get('problem'),
 					));
 
-				return Redirect::route('commercialspecificproblem');
+				return Redirect::route('commerciallocation');
 			}
 
 

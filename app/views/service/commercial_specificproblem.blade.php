@@ -1,17 +1,12 @@
 @extends('layouts.report')
 @section('content')
 
-<h1>Commercial Specific Problems
-
-<br>
-{{$problem_id}}
-
-</h1><br>
+<h1>Commercial Specific Problems</h1><br>
 @foreach($problems as $problem)
 
 <ul>
 
-{{ link_to_route('commercialspecificproblem', ($problem->problem), $problem->id, array('id' => $problem->id)); }}
+{{ $problem->specific_problem }}
 
 
 
