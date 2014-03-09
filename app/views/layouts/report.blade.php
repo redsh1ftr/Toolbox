@@ -50,8 +50,10 @@
 	</style>
 </head>
 <body>
-	<table style="width:300px", BORDER="0"> <TH COLSPAN="3">
-	<th>{{link_to_route('clienthub', 'Client Hub')}}</th><th>{{link_to_route('marketinghub', 'Marketing Hub')}}</th></table><br>
+	<table style="width:400px", BORDER="0"> <TH COLSPAN="3">
+	<th>{{link_to_route('clienthub', 'Client Hub')}}</th>
+	<th>{{link_to_route('marketinghub', 'Marketing Hub')}}</th>
+	<th>{{link_to_route('servicehub', 'Services')}}</th></table><br>
 		@yield('content')
 	</div>
 </body>

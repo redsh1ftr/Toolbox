@@ -1,8 +1,6 @@
-<HTML>
-	<body>
-		<p>
-			WORKERRR
-		</P>
-	</body>
-	<HTML>
-		
+@extends('layouts.report')
+@section('content')
+
+
+
+@stop

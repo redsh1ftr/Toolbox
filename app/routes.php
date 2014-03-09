@@ -42,3 +42,13 @@ Route::get('client/{id}', array('as' => 'clientprofile', 'uses' => 'ClientContro
 Route::get('client', array('as' => 'clienthub', 'uses' => 'ClientController@clienthub'));
 
 Route::get('workorder/new/{id}', array('as' => 'new_workorder', 'uses' => 'WorkorderController@createworkorder'));
+
+Route::get('services', array('as' => 'servicehub', 'uses' => 'ServicesController@servicehub'));
+
+Route::get('services/medical', array('as' => 'medicalservice', 'uses' =>'ServicesController@medicalservice'));
+
+Route::get('services/commercial', array('as' => 'commercialservice', 'uses' =>'ServicesController@commercialservice'));
+
+Route::get('services/residential', array('as' => 'residentialservice', 'uses' =>'ServicesController@residentialservice'));
+
+Route::post('services/medical/create', array('as' => 'createmedicallocation', 'uses' => 'ServicesController@addmedicallocation'));

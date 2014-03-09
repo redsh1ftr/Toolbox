@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServices extends Migration {
+class MedicalLocation extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -11,16 +11,12 @@ class CreateServices extends Migration {
 	 */
 	public function up()
 	{
-			Schema::create('services_list', function($table){
+		Schema::create('medical_location', function($table){
 			$table->increments('id');
-			$table->string('type');
 			$table->string('location');
-			$table->string('problem');
-			$table->string('specific_problem');
-			$table->longtext('notes');			
 			$table->timestamps();
-		});
-	}
+	});
+		}
 
 	/**
 	 * Reverse the migrations.
