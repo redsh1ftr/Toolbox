@@ -18,7 +18,14 @@ Route::get('/logout', function() { return View::make('main.hello'); });
 //WORKER ROUTES
 
 
-		Route::get('/worker', array('uses' => 'WorkerController@workerprofile'));
+		Route::get('/worker', array('as' => 'workerhub', 'uses' => 'WorkerController@workerprofile'));
+
+		Route::get('/worker/{id}', array('as' => 'workerprofile', 'uses' => 'WorkerController@workerprofile'));
+
+		//CREATE NEW WORKER
+
+		Route::post('/worker/create', array('as' => 'addworker', 'uses' => 'WorkerController@addworker'));
+
 
 //CLIENT ROUTES
 
