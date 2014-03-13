@@ -17,14 +17,17 @@ class WorkerController extends BaseController {
 
 	public $restful = true;
 
-	public function workerprofil2e() {
+	public function workeradd() {
 		return View::make('worker.add_worker',  array('pagetitle', 'Client Hub'));
 	}
 
+	public function workerhub() {
+		return View::make('worker.worker_hub',  array('pagetitle', 'Client Hub'));
+	}
 
 
 	public function addworker(){
-		Worker::create(array(
+		Worker1::create(array(
 			'first' => Input::get('first'),
 			'last' => Input::get('last'),
 			'title' => Input::get('title'),
@@ -45,17 +48,19 @@ class WorkerController extends BaseController {
 			'rate' => Input::get('rate'),
 			'notes' => Input::get('notes'),
 			));
-		return Redirect::route('workerhub');
+		return Redirect::route('workerlist');
 	}
 
-	public function workerprofile22($id){
+	public function workerprofile($id){
 	return View::make('worker.worker_profile',  array('pagetitle', 'Client Profile'))
-		->with('workers', Worker::where('id', '=', $id)->get());
+		->with('worker1', Worker1::where('id', '=', $id)->get());
 	}
-	public function workerprofile(){
+
+
+	public function workerlist(){
 
 	return View::make('worker.worker_list',  array('pagetitle', 'Client List'))
-	->with('workers', Worker::orderBy('id')->get());
+	->with('worker1', Worker1::get());
 
 }
 
